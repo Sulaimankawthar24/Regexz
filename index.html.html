@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx Assignment</title>
+</head>
+<body>
+    <script>
+     //1.
+     pattern = /ca[rt]/
+        string = "car cat"
+        result = pattern.test(string);
+        console.log(result);
+
+        //2.
+        pattern = /pr?op/
+        string = "pop prop"
+        result = pattern.test(string);
+        console.log(result);
+
+        //3.
+        pattern = /ferr(et|y|ari)/
+        string = "ferret ferry ferrari"
+        result = pattern.test(string);
+        console.log(result);
+
+        //4.
+        pattern = /\b\w+ious\b/
+        string = "delicious"
+        result = pattern.test(string);
+        console.log(result);
+
+        //5. 
+        pattern = /\s[.,;:]/
+        string = " .,:;"
+        result = pattern.test(string);
+        console.log(result);
+
+        //6.
+        pattern = /\b\w{7,}\b/
+        string = "gorgeous"
+        result = pattern.test(string);
+        console.log(result);
+
+
+        //7.
+        pattern = /\b[^eE\s]+\b/
+        string = "Egg, Milk, cake"
+        result = pattern.test(string);
+        console.log(result);
+
+    /*
+    Exercise 2
+    replacing all the dialogue quotes with double quotes,
+    while keeping the single quotes used in contractions like aren’t.
+   */
+
+        let story = "Mr Shams said, 'Take your learning serious'"
+      
+        let pattern = /'([^']+)'/igm;
+        let result = story.replace(pattern, '"$1"')
+        console.log(result)
+
+
+    /* Exercise 3
+      Write an expression that matches only JavaScript-style numbers.
+    */
+        let numbers= ["2", "+5", "5."];
+
+        let numRegExp = /^[+\-]?\d+(\.\d*)?([eE][+\-]?\d+)?$/;
+        numbers.forEach((num) => {
+        let result = numRegExp.test(num);
+        console.log(`"${num}" is a valid JavaScript number: ${result}`);
+        });
+
+    </script>
+</body>
+</html>
